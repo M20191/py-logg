@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/styles.css')}}">
+    <title>Panel Admin</title>
+</head>
+
+<body>
+    <div class="main_container">
+        <div class="container">
+            <div class="page_headeling">
+                <h1>PyLogg</h1>
+                <p>By: M2019!</p>
+            </div>
+            <div class="table-responsive">
+                <div class="table-row-title">
+                    <div class="table-cell-title">
+                        <p>Key</p>
+                    </div>
+                    <div class="table-cell-title">
+                        <p>Data</p>
+                    </div>
+                </div>
+                <div class="table-responsive-info">
+                    {% for key,data in data.items() %}
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <p>{{key}}</p>
+                        </div>
+                        <div class="table-cell">
+                            <p>{{data}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

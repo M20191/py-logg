@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyLogger | M20191</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/styles.css')}}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;800;900&display=swap');
+      </style>
+</head>
+<body>
+
+    {% if status == "url" %}
+    <div class="main_container">
+        <div class="container">
+            <div class="page_headeling">
+                <h1>PyLogg</h1>
+                <p>By: M2019!</p>
+            </div>
+            <div class="info_table">
+                <div class="info_container">
+                    <div class="url_input" type="text"">
+                        <span style="color: rgba(0,0,0 , 0.48);">fake url:</span> <span id="text_copy">{{final_url}}</span>
+                      </div>
+                      <button class="main_btn" onclick="copyDivToClipboard()">Copiar
+                        <img class="main_btn_icon_copy" src="{{url_for('static',filename='images/copylink.svg')}}">
+                      </button>
+                </div>
+                <div class="info_container">
+                    <div class="url_input" type="text"> <span style="color: rgba(0,0,0 , 0.48);">original url:</span> {{url}}</div>
+                    <a href="panel/admin?key={{key}}" class="main_btn">panel <img class="main_btn_icon_arrow" src="{{url_for('static',filename='images/Rightarrow.svg')}}">{{key}}</a>
+                </div>
+            </div>
+        </div>
+     </div>
+
+    {% else %}
+
+    <div class="main_container">
+        <div class="container">
+            <div class="page_headeling">
+                <h1>PyLogg</h1>
+                <p>By: M2019!</p>
+            </div>
+            <div>
+                <form method="POST" class="input_container">
+                <input class="url_input" placeholder="Type your url here " type="text" name="url">
+                <button class="main_btn" type="submit">
+                    Enviar
+                </button>
+                </form>
+            </div>
+        </div>
+     </div>
+
+    {% endif %}
+
+    <script>
+
+function copyDivToClipboard() {
+ var range = document.createRange();
+ range.selectNode(document.getElementById("text_copy"));
+ window.getSelection().removeAllRanges();
+ window.getSelection().addRange(range);
+ document.execCommand("copy");
+ window.getSelection().removeAllRanges();
+}
+
+        </script>
+</body>
+</html>
